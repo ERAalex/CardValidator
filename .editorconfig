@@ -1,0 +1,13 @@
+# настройки редактора под мой преокт (например добавлять в конце пустую строку и тд)
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
