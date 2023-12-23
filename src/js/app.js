@@ -1,4 +1,4 @@
-import { greet } from './module'
+import { greet } from "./module";
 
 // TODO: write code here
 
@@ -10,5 +10,5 @@ export default function demo(value) {
   return `Demo: ${value}`;
 }
 
-greet('James')
+greet("James");
 console.log("app.js included");
