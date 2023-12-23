@@ -1,4 +1,4 @@
-import "./css/style.css";
+import "./js/field-runner/field-runner.css";
 
 import "./js/app";
 

@@ -1,14 +1,11 @@
-import { greet } from "./module";
+import ImageWidget from "./field-runner/field-runner";
 
-// TODO: write code here
+console.log('start')
 
-// comment this to pass build
-const unusedVariable = "variable";
+document.addEventListener('DOMContentLoaded', () => {
+  const widget = new ImageWidget(document.querySelector('.table-main'));
 
-// for demonstration purpose only
-export default function demo(value) {
-  return `Demo: ${value}`;
-}
+  console.log(widget.addImageRabbit())
 
-greet("James");
-console.log("app.js included");
+  window.widget = widget;
+});
