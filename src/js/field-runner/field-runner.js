@@ -9,24 +9,29 @@ export default class ImageWidget {
     return Math.floor(Math.random() * max);
   }
 
-  addImageRabbit() {
-    console.log('done')
+  deleteActiveRabbit() {
+    const activeElements = this._element.querySelectorAll('.item-table-active');
+
+    if (activeElements.length != 0){
+      activeElements[0].classList.remove("item-table-active");
+    }
+  }
+
+  addRandomRabbit() {
+    // const activeElements = this._element.querySelectorAll('.item-table-active');
+
+    // if (activeElements.length != 0){
+    //   activeElements[0].classList.remove("item-table-active");
+    // }
 
     const newElements = this._element.querySelectorAll('.item-table');
-    console.log(newElements)
-
-    // const lastImageField = newElements[newElements.length - 1];
     
     let choiceField = this.getRandomInt(this._total_fields)
-    console.log(choiceField)
+
 
     let randomField = newElements[choiceField]
     randomField.classList.add("item-table-active");
-    console.log(randomField)
-    // console.log(lastImageField)
-    // this._element.removeChild(lastImageField)
 
-    console.log('--------')
   }
 
 

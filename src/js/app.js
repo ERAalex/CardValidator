@@ -5,7 +5,11 @@ console.log('start')
 document.addEventListener('DOMContentLoaded', () => {
   const widget = new ImageWidget(document.querySelector('.table-main'));
 
-  console.log(widget.addImageRabbit())
+  const rabbitInterval = setInterval(() => {
+    widget.deleteActiveRabbit()
+    widget.addRandomRabbit()
 
-  window.widget = widget;
+  }, 1000);
+
+
 });
