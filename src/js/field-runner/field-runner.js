@@ -2,7 +2,7 @@
 export default class ImageWidget {
   constructor(element) {
     this._element = element;
-    this._total_fields = 4;
+    this._total_fields = 16;
     this._last_position = 0;
   }
 
