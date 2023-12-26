@@ -5,12 +5,11 @@ console.log("start");
 document.addEventListener("DOMContentLoaded", () => {
   const widget = new ImageWidget(document.querySelector(".table-main"));
 
-  const rabbitInterval = setInterval(() => {
+  setInterval(() => {
     widget.deleteActiveRabbit();
     widget.addRandomRabbit();
   }, 1000);
 });
-
 
 export default function demo(value) {
   return `Demo: ${value}`;

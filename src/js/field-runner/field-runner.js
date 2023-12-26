@@ -3,7 +3,6 @@ export default class ImageWidget {
     this._element = element;
     this._total_fields = 16;
     this._last_position = 0;
-
   }
 
   getRandomInt(max) {
@@ -23,12 +22,11 @@ export default class ImageWidget {
     }
   }
 
-  addRandomRabbit = () => {
+  addRandomRabbit() {
     const newElements = this._element.querySelectorAll(".item-table");
     let choiceField = this.getRandomInt(this._total_fields);
 
     let randomField = newElements[choiceField];
     randomField.classList.add("item-table-active");
   }
-
 }
