@@ -39,6 +39,10 @@ jobs:
         # будем использовать yarn, но можно написать  npm install
         run: yarn
 
+      # устанавливаем библиотеку для тестов
+      - name: Install jest-environment-jsdom
+        run: yarn add jest-environment-jsdom
+
       # будем использовать yarn, но можно написать npm run lint
       - name: Run linters
         run: yarn run lint
