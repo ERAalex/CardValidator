@@ -45,7 +45,7 @@ jobs:
 
       # npm run coverage
       - name: Run test
-        run: yarn coverage
+        run: yarn test
 
       # npm run build
       - name: Build
