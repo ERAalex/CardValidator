@@ -1,17 +1,19 @@
-import CounterWidget from "../counter/counter"
+import CounterWidget from "../counter/counter";
 
 export default class ImageWidget {
   constructor(element) {
     this._element = element;
     this._total_fields = 16;
     this._last_position = 0;
-    this._newCounter = new CounterWidget(document.querySelector(".counter-main"));
+    this._newCounter = new CounterWidget(
+      document.querySelector(".counter-main")
+    );
 
     // listener part
     this.onClickField = this.onClickField.bind(this);
     this._elements = this._element.querySelectorAll(".item-table");
     for (var i = 0; i < this._elements.length; i++) {
-      this._elements[i].addEventListener('click', this.onClickField);
+      this._elements[i].addEventListener("click", this.onClickField);
     }
   }
 
@@ -19,10 +21,10 @@ export default class ImageWidget {
     /**
      * React on clock on some field. If dield is active -> add new poitns, if not -> add miss.
      * @param  {Object} event check events.
-     * 
+     *
      */
-      
-    let clickedElement = event.target
+
+    let clickedElement = event.target;
 
     if (clickedElement.classList.contains("item-table-active")) {
       clickedElement.classList.remove("item-table-active");
@@ -51,7 +53,7 @@ export default class ImageWidget {
     /**
      * Finds and delete all active fields.
      * @param  {} no params.
-     * 
+     *
      */
     const activeElements = this._element.querySelectorAll(".item-table-active");
 
@@ -65,13 +67,12 @@ export default class ImageWidget {
     /**
      * Create new active field with a Rabbit.
      * @param  {} no params.
-     * 
+     *
      */
     const newElements = this._element.querySelectorAll(".item-table");
     let choiceField = this.getRandomInt(this._total_fields);
 
     let randomField = newElements[choiceField];
     randomField.classList.add("item-table-active");
-
   }
 }

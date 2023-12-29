@@ -1,4 +1,3 @@
-
 export default class CounterWidget {
   constructor(element) {
     this._element = element;
@@ -6,7 +5,6 @@ export default class CounterWidget {
 
   newHits() {
     const getHitsElement = this._element.querySelector(".counter-hits");
-    console.log(getHitsElement.innerHTML)
     getHitsElement.innerHTML = Number(getHitsElement.innerHTML) + 1;
   }
 
@@ -20,7 +18,5 @@ export default class CounterWidget {
       getMissElement.innerHTML = 0;
       getHitsElement.innerHTML = 0;
     }
-
   }
-
 }
