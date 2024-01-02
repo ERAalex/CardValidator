@@ -1,0 +1,36 @@
+.cards-container{
+  border: 2px solid black;
+  background-color: rgb(217, 151, 19);
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  justify-content: flex-start;
+}
+
+.filter-active{
+  filter: grayscale(100%);
+}
+
+.type-diners{
+  background-image: url("/src/js/card-types/img/diners.png");
+}
+
+.type-discover{
+  background-image: url("/src/js/card-types/img/discover.png");
+}
+
+.type-express{
+  background-image: url("/src/js/card-types/img/express.png");
+}
+
+.type-jsb{
+  background-image: url("/src/js/card-types/img/jsb.png");
+}
+
+.type-mastercard{
+  background-image: url("/src/js/card-types/img/mastercard.png");
+}
+
+.type-visa{
+  background-image: url("/src/js/card-types/img/visa.png");
+}

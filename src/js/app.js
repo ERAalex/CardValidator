@@ -1,16 +1,13 @@
-import ImageWidget from "./field-runner/field-runner";
+import CardWidget from "./card-types/card-types";
+import CardForm from "./card-form/card-form";
 
 console.log("start");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const widget = new ImageWidget(document.querySelector(".table-main"));
+  const widgetCard = new CardWidget(document.querySelector(".card-main-container"));
+  widgetCard.cardShow();
 
-  setInterval(() => {
-    widget.deleteActiveRabbit();
-    widget.addRandomRabbit();
-  }, 1000);
+  const widgetForm = new CardForm(document.querySelector(".card-form"));
+  widgetForm.onKeyPress();
+
 });
-
-export default function demo(value) {
-  return `Demo: ${value}`;
-}

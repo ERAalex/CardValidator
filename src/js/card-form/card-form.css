@@ -1,0 +1,10 @@
+.card-input{
+  margin: 20px 10px 40px 0px;
+  width: 20%;
+  height: 30px;
+  font-size: 20px;
+}
+
+.card-alert{
+  background-color: rgb(225, 173, 173);
+}
