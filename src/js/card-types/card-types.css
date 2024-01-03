@@ -15,6 +15,10 @@
   background-image: url("/src/js/card-types/img/diners.png");
 }
 
+.type-mir{
+  background-image: url("/src/js/card-types/img/mir.png");
+}
+
 .type-discover{
   background-image: url("/src/js/card-types/img/discover.png");
 }

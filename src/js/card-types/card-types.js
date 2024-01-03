@@ -3,7 +3,7 @@ export default class CardWidget {
   // and use them in cardShow, note that also we need to add images to /img folder with name of card
   constructor(element) {
     this._element = element;
-    this._awailableCards = ['visa', 'mastercard', 'express', 'discover',  'jsb', 'diners'];
+    this._awailableCards = ['visa', 'mir', 'mastercard', 'express', 'discover',  'jsb', 'diners'];
   }
 
 

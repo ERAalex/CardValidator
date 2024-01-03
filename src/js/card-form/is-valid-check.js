@@ -1,6 +1,6 @@
 
 // takes the form field value and returns true on valid number
-function valid_credit_card(value) {
+export default function valid_credit_card(value) {
   // accept only digits, dashes or spaces
       if (/[^0-9-\s]+/.test(value)) return false;
   

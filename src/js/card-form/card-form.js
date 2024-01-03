@@ -1,4 +1,5 @@
 import CardWidget from "../card-types/card-types.js";
+import valid_credit_card from "../card-form/is-valid-check.js"; 
 
 export default class CardForm {
   // This class response for input numbers of cards
@@ -7,7 +8,7 @@ export default class CardForm {
     this._inputField = this._element.querySelector('.card-input');
     this._message = this._element.querySelector('.message-status');
     this._alertMessages =['Card is not defined',
-                          'Incorrect input',
+                          'Incorrect card input',
                           'Please enter your card number']
 
   // listener part
@@ -26,18 +27,28 @@ export default class CardForm {
   }
 
   checkTypeCard(string) {
-    // check type of card - visa, mastercard, discover, diners, jsb
+    // check type of card - visa, mastercard, discover, diners, jsb, mir
     const dinersCard = ['30', '36', '38', '39']
     const jsbCard = [352800, 358999]
     const express = ['34', '37']
+    const mir = ['2']
+    const visa = ['4']
+    const mastercard = ['5']
+    const discover = ['6']
 
     if (string.length === 16) {
 
-      if (string[0] === '4') {
+      if (!valid_credit_card(string)) {
+        return 'Incorrect card input';
+      }
+
+      if (visa.includes(string[0])) {
         return 'visa';
-      } else if (string[0] === '5') {
+      } else if (mir.includes(string[0])) {
+        return 'mir';
+      } else if (mastercard.includes(string[0])) {
         return 'mastercard';
-      } else if (string[0] === '6') {
+      } else if (discover.includes(string[0])) {
         return 'discover';
       } else if (dinersCard.includes(string.substring(0, 2))) {
         return 'diners';
@@ -84,13 +95,15 @@ export default class CardForm {
         if (typeCard === 'Card is not defined') {
           this._message.textContent = this._alertMessages[0];
           this._inputField.classList.add('card-alert')
+        // if Lulh alghoritm show that number is not valid
+        } else if (typeCard === 'Incorrect card input') {
+          this._message.textContent = this._alertMessages[1];
+          this._inputField.classList.add('card-alert')
         } else {
-          console.log(typeCard);
           widgetCard.cardDeactivateAll();
           widgetCard.cardActivate(typeCard);
           this._inputField.classList.add('card-valid')
       };
     }
-
-
-}}}
+  }
+}}
