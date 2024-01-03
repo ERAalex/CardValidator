@@ -21,6 +21,18 @@ export default class CardWidget {
       </div>`
 
     })
-
   }
+
+  cardActivate(card) {
+    const cardItem = this._element.querySelector(`.type-${card}`);
+    cardItem.classList.remove("filter-active");
+  }
+
+  cardDeactivateAll() {
+    const cardItems = this._element.querySelectorAll(".card-item");
+    for (let i = 0; i < cardItems.length; i++) {
+      cardItems[i].classList.add("filter-active");
+    }
+  }
+
 }
