@@ -53,7 +53,7 @@ export default class CardForm {
     }
 
     if (string.length >= 16) {
-      if (!valid_credit_card(string) & string[0] != '2') {
+      if (!valid_credit_card(string) & (string[0] != "2")) {
         return "Incorrect card input";
       }
       if (visa.includes(string[0])) {

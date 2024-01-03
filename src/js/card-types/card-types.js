@@ -30,8 +30,10 @@ export default class CardWidget {
   }
 
   cardActivate(card) {
+    // remove grey filter
     const cardItem = this._element.querySelector(`.type-${card}`);
     cardItem.classList.remove("filter-active");
+    return cardItem;
   }
 
   cardDeactivateAll() {
