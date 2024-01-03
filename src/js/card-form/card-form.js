@@ -59,6 +59,7 @@ export default class CardForm {
     if (this.checkValidInput(valueInput) === false) {
       // if not valid input add red color to input field
       this._message.textContent = this._alertMessages[1];
+      his._inputField.classList.remove('card-valid')
       this._inputField.classList.add('card-alert')
     }
     else {
@@ -72,7 +73,7 @@ export default class CardForm {
 
       if (valueInput.length === 16) {
         const typeCard = this.checkTypeCard(valueInput);
-        console.log(typeCard);
+
         // if card is not defined add message
         if (typeCard === 'Card is not defined') {
           this._message.textContent = this._alertMessages[0];
@@ -80,6 +81,8 @@ export default class CardForm {
           const widgetCard = new CardWidget(document.querySelector(".card-main-container"));
           widgetCard.cardDeactivateAll();
           widgetCard.cardActivate(typeCard);
+          this._inputField.classList.add('card-valid')
+          console.log('passed')
       };
     }
 

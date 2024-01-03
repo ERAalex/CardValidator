@@ -8,3 +8,7 @@
 .card-alert{
   background-color: rgb(225, 173, 173);
 }
+
+.card-valid{
+  background-color: rgb(155, 218, 136);
+}
