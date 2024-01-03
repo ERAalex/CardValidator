@@ -6,8 +6,9 @@ export default class CardForm {
     this._element = element;
     this._inputField = this._element.querySelector('.card-input');
     this._message = this._element.querySelector('.message-status');
-    this._alertMessages =["Card is not defined",
-                         "Incorrect input",]
+    this._alertMessages =['Card is not defined',
+                          'Incorrect input',
+                          'Please enter your card number']
 
   // listener part
     this.onKeyPress = this.onKeyPress.bind(this);
@@ -29,9 +30,6 @@ export default class CardForm {
     const dinersCard = ['30', '36', '38', '39']
     const jsbCard = [352800, 358999]
     const express = ['34', '37']
-
-    console.log(string[0])
-    console.log(string.substring(0, 2))
 
     if (string.length === 16) {
 
@@ -55,16 +53,23 @@ export default class CardForm {
 
   onKeyPress(event) {
     const valueInput = this._inputField.value;
+    const widgetCard = new CardWidget(document.querySelector(".card-main-container"));
+    this._inputField.classList.remove('card-valid')
 
-    if (this.checkValidInput(valueInput) === false) {
+    if (valueInput.length === 0) {
+      this._message.textContent = this._alertMessages[2];
+      this._inputField.classList.remove('card-alert')
+      widgetCard.cardDeactivateAll();
+    }
+
+    if (this.checkValidInput(valueInput) === false & valueInput.length > 0) {
       // if not valid input add red color to input field
       this._message.textContent = this._alertMessages[1];
-      his._inputField.classList.remove('card-valid')
+      this._inputField.classList.remove('card-valid')
       this._inputField.classList.add('card-alert')
-    }
-    else {
-      // if valid input check 16 numbers and return type card and show it
+    } else {
       this._inputField.classList.remove('card-alert')
+      widgetCard.cardDeactivateAll();
       this._message.textContent = ' ';
       const checkAlert = this._element.querySelector('.incorrect-card-type') !== null;
       if (checkAlert) {
@@ -72,17 +77,18 @@ export default class CardForm {
       }
 
       if (valueInput.length === 16) {
+        // if input lenght is 16 numbers logic for return type card and show it
         const typeCard = this.checkTypeCard(valueInput);
 
         // if card is not defined add message
         if (typeCard === 'Card is not defined') {
           this._message.textContent = this._alertMessages[0];
+          this._inputField.classList.add('card-alert')
         } else {
-          const widgetCard = new CardWidget(document.querySelector(".card-main-container"));
+          console.log(typeCard);
           widgetCard.cardDeactivateAll();
           widgetCard.cardActivate(typeCard);
           this._inputField.classList.add('card-valid')
-          console.log('passed')
       };
     }
 
