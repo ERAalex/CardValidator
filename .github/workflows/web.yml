@@ -1,5 +1,5 @@
 # название может быть любым
-name: Netology AHJ
+name: Espinosa CardValidation
 
 # по каким событиям должен срабатывать action
 on: [push, pull_request]
