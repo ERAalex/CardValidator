@@ -127,23 +127,3 @@ export default class CardForm {
     }
   }
 }
-
-// const widgetCard = new CardWidget(document.querySelector(".card-main-container"));
-
-// if (!valid_credit_card(string)) {
-//   return "Incorrect card input";}
-
-// for (let i = 0; i < widgetCard._awailableCards.length; i++) {
-//   console.log(widgetCard._awailableCards[i])
-//   const itemCard = widgetCard._awailableCards[i]
-
-//   if (string.length === 14 & itemCard === "diners") {
-//     if (dinersCard.includes(string.substring(0, 2))) {
-//       return "diners";}
-//   } else if (string.length === 15 & itemCard === "express") {
-//     if (express.includes(string.substring(0, 2))) {
-//       return "express";}
-//   } else if (string.length === 16) {
-//     if (itemCard.includes(string.substring(0, 2))) {
-//       return "express";}
-// }
