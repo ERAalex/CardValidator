@@ -1,5 +1,5 @@
 import CardForm from "./card-form";
-import valid_credit_card from "./is-valid-check.js";
+import CardValidation from "./card-form-validation.js";
 
 describe("Card Form Widget functionality", () => {
   test("check messages alerts", () => {
@@ -9,18 +9,23 @@ describe("Card Form Widget functionality", () => {
       .mockReturnValue(document.createElement("div"));
     document.querySelector = mockQuerySelector;
 
-    // create fake new input for class constructor and eventListener
+    // create fake new input and button for class constructor and eventListener
     const mainContainer = document.querySelector(".card-form");
     const inputElent = mainContainer.appendChild(
       document.createElement("input")
     );
     inputElent.className = "card-input";
 
+    const inputButton = mainContainer.appendChild(
+      document.createElement("button")
+    );
+    inputButton.className = "button-card";
+
     const widget = new CardForm(document.querySelector(".card-form"));
     widget._element.querySelector = mockQuerySelector;
 
     const totalMessages = widget._alertMessages;
-    expect(totalMessages.length).toBe(3); // check all messages
+    expect(totalMessages.length).toBe(5); // check all messages
 
     mockQuerySelector.mockRestore();
   });
@@ -40,9 +45,7 @@ describe("Check function checkTypeCard()", () => {
       document.createElement("input")
     );
     inputElent.className = "card-input";
-
-    const widget = new CardForm(document.querySelector(".card-form"));
-    widget._element.querySelector = mockQuerySelector;
+    const widget = new CardValidation();
 
     // let check;
     const card = [];
@@ -64,7 +67,7 @@ describe("Check function checkTypeCard()", () => {
 
     // lets check if card number is valid by Luhn alghoritm
     for (const [key, value] of Object.entries(card[0])) {
-      const check = valid_credit_card(value);
+      const check = widget.validCreditCard(value);
       expect(check).toBe(true);
     }
 
