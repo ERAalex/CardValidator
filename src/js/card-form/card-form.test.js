@@ -1,4 +1,5 @@
 import CardForm from "./card-form";
+import valid_credit_card from "./is-valid-check.js";
 
 describe("Card Form Widget functionality", () => {
   test("check messages alerts", () => {
@@ -60,6 +61,14 @@ describe("Check function checkTypeCard()", () => {
     for (const [key, value] of Object.entries(card[0])) {
       const check = widget.checkTypeCard(value);
       expect(check).toBe(key);
+    }
+
+    // lets check if card number is valid by Luhn alghoritm
+    for (const [key, value] of Object.entries(card[0])) {
+      if (key != 'mir') {
+      const check = valid_credit_card(value);
+      expect(check).toBe(true);
+      }
     }
 
     mockQuerySelector.mockRestore();
