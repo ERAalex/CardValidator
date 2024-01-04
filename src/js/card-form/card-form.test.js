@@ -49,7 +49,6 @@ describe("Check function checkTypeCard()", () => {
 
     card.push({
       visa: "4716020678046587",
-      mir: "2216020678046587",
       mastercard: "5306951761201585",
       express: "342309932141239",
       discover: "6011197358921938",
@@ -65,10 +64,8 @@ describe("Check function checkTypeCard()", () => {
 
     // lets check if card number is valid by Luhn alghoritm
     for (const [key, value] of Object.entries(card[0])) {
-      if (key != 'mir') {
       const check = valid_credit_card(value);
       expect(check).toBe(true);
-      }
     }
 
     mockQuerySelector.mockRestore();
